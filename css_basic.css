@@ -1,0 +1,123 @@
+/*========================================*/
+/* Комментирование в CSS */
+
+/*========================================*/
+/* Изменение стиля внутри HTML-элемента*/
+
+<h2 style="color: blue;">CatPhotoApp</h2>
+
+/*========================================*/
+/* Изменение стиля всех подобных HTML-элементов на странице*/
+
+<style>
+	h2 {color: red;}
+	h3 {color: #FF0000;}
+	h4 {color: rgb(0, 0, 0);}
+</style>
+
+/*========================================*/
+/* Использование CSS-класса*/
+
+<style>
+	.blue-text {
+		color: blue;
+	}
+</style>
+
+<h2 class="blue-text">CatPhotoApp</h2>
+
+/*========================================*/
+/* Шрифты*/
+
+h2 {
+	font-size: 16px;
+	font-family: sans-serif;
+}
+
+/*========================================*/
+/* Импорт внешнего шрифта, его использование и назначение monospace в качестве замены*/
+
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+
+h2 {
+	font-family: Lobster, monospace;
+}
+
+/*========================================*/
+/* Картинки*/
+
+.larger-image {
+	width: 500px;
+	border-radius: 50%;  /*Делает картинку круглой*/
+}
+
+/*========================================*/
+/* Границы вокруг элементов*/
+
+.thin-red-border {
+	border-color: red;
+	border-width: 5px;
+	border-style: solid;
+	border-radius: 5px;
+}
+
+/*========================================*/
+/* Фон элементов*/
+
+.green-background {
+	background-color: green;
+}
+
+/*========================================*/
+/* Применение стиля к элементу по его ID*/
+
+#cat-photo-element {
+	background-color: green;
+}
+
+/*========================================*/
+/* Применение настроек размера заполнения и отступа к элементам checkbox*/
+
+[type='checkbox'] {
+	/*padding: 0in 0mm 0em 0rem;*/
+	padding-top: 40px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+	padding-left: 40px;
+	/*padding: 40px 20px 20px 40px;*/
+	margin-top: 40px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-left: 40px;
+	/*margin: 40px 20px 20px 40px;*/
+}
+
+/*========================================*/
+/* Использование переменных в CSS. InternetExplorer не поддерживается!*/
+
+<style>
+	:root{
+		--penguin-skin: gray;
+	}
+	
+	.penguin-top {
+		background: var(--penguin-skin, black); /*black здесь - запасное значение, которое будет использовать браузер, если переменная будет неверна*/
+	}
+</style>
+
+/*========================================*/
+/* Использование media для изменения переменных. При ширине экрана в 350 пикселей применится код в скобках.*/
+
+@media (max-width: 350px) {
+    :root {
+    	--penguin-size: 200px;
+    	--penguin-skin: black;     
+    }
+  }
+
+/*========================================*/
+/* Изменение стиля отображения картинки*/
+
+/*========================================*/
+/* Изменение стиля отображения картинки*/
+
