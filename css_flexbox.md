@@ -1,6 +1,6 @@
 # CSS Flexbox
 
-Brief summary of _CSS Flexbox_ part of _Responsive Web Design Certification_ course on [freeCodeCamp](https://learn.freecodecamp.org/).
+> Brief summary of _CSS Flexbox_ part of _Responsive Web Design Certification_ course on [freeCodeCamp](https://learn.freecodecamp.org/).
 
 ---
 Placing the CSS property `display: flex;` on an element allows you to use other flex properties to build a responsive page.
