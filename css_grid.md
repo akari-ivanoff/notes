@@ -34,7 +34,7 @@ The grid will set the number of rows automatically. To adjust the rows manually,
 
 ----
 You can use absolute and relative units like _px_ and _em_ in CSS Grid to define the size of rows and columns. You can use these as well:
- - _fr_: sets the column or row to a fraction of the available space,
+ - _fr_: Each _fr_ unit allocates one share of the available space. For example, if two elements are set to _1fr_ and _3fr_ respectively, the space is divided into 4 equal shares; the first element occupies 1/4 and the second element 3/4 of any leftover space. When columns are set with pixels, percentages, or ems, any other columns set with _fr_ will divvy up the space that's left over.
  - _auto_: sets the column or row to the width or height of its content automatically,
  - _%_: adjusts the column or row to the percent width of its container.
 
@@ -259,6 +259,117 @@ For example, by setting the `display` and `grid-template-columns` properties of 
     <div class="itemTwo">paragraph2</div>
   </div>
 </div>
+```
+
+---
+
+# Grid Garden
+
+> Notes from [Grid Garden](http://cssgridgarden.com/) game.
+
+---
+`grid-column-start` property in the example will place the _#water_ to the area starting at the 3rd vertical grid line, which is another way of saying the 3rd vertical border from the left in the grid.
+
+```css
+#water {
+    grid-column-start: 3;
+}
+```
+
+---
+When `grid-column-start` is used alone, the grid item by default will span exactly one column. However, you can extend the item across multiple columns by adding the `grid-column-end` property. Note that the `grid-column-end` property should point to the number of the column next to the last (exclusive).
+
+When pairing `grid-column-start` and `grid-column-end`, the start value can be greater than the end value, then they will exchange their places.
+
+```css
+#water {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+```
+
+---
+If you want to count grid lines from the right instead of the left, you can give `grid-column-start` and `grid-column-end` negative values. For example, you can set it to -1 to specify the first grid line from the right.
+
+```css
+#water {
+    grid-column-start: 1;
+    grid-column-end: -2;
+}
+```
+
+---
+Instead of defining a grid item based on the start and end positions of the grid lines, you can define it based on your desired column width using the `span` keyword. Keep in mind that `span` only works with positive values.
+
+```css
+#water {
+    grid-column-start: 2;
+    grid-column-end: span 2;
+}
+```
+
+---
+Instead of defining a grid item based on the start and end positions of the grid lines, you can define it based on your desired column width using the `span` keyword. Keep in mind that `span` only works with positive values.
+
+```css
+#water {
+    grid-column-start: 2;
+    grid-column-end: span 2;
+}
+```
+
+You can also use the `span` keyword with `grid-column-start` to set your item's width relative to the end position.
+
+---
+`grid-column` is a shorthand property that can accept both  `grid-column-start` and `grid-column-end` values at once, separated by a slash.
+
+The example will set the grid item to start on the 2nd vertical grid line and end on the 4th grid line.
+
+```css
+#water {
+    grid-column: 2 / 4;
+}
+```
+---
+One of the things that sets CSS grids apart from flexbox is that you can easily position items in two dimensions: columns and rows. `grid-row-start` works much like `grid-column-start` except along the vertical axis. `grid-raw-end` and `grid-row` properties also works the same way as for columns.
+
+```css
+#water {
+    grid-row: 4 / 6;
+}
+```
+
+---
+If typing out both `grid-column` and `grid-row` is too much for you, there's yet another shorthand for that. `grid-area` accepts four values separated by slashes: `grid-row-start`, `grid-column-start`, `grid-row-end`, followed by `grid-column-end`.
+
+```css
+#water {
+    grid-area: 1 / 1 / 3 / 6;
+}
+```
+
+You can overlap multiple items using `grid-area` without any trouble.
+
+---
+If grid items aren't explicitly placed with `grid-area`, `grid-column`, `grid-row`, etc., they are automatically placed according to their order in the source code. We can override this using the `order` property, which is one of the advantages of grid over table-based layout.
+
+By default, all grid items have an `order` of _0_, but this can be set to any positive or negative value, similar to `z-index`.
+
+```css
+#poison {
+    order: 1;
+}
+```
+
+---
+`grid-template` is a shorthand property that combines `grid-template-rows` and `grid-template-columns`.
+
+The example will create a grid with two rows that are 50% each, and one column that is 200 pixels wide.
+
+```css
+#water {
+    grid-template: 50% 50% / 200px;
+}
 ```
 
 ---
