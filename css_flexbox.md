@@ -175,3 +175,7 @@ The `order` property is used to tell CSS the order of how flex items appear in t
 ```
 
 ---
+
+# Additional resources
+
+ - [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
